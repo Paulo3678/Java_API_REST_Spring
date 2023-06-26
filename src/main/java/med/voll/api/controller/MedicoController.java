@@ -9,12 +9,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.PrintStream;
-import java.util.List;
-
 @RestController
 @RequestMapping("medicos")
 public class MedicoController {
+
     @Autowired
     private MedicoRepository repository;
 
@@ -38,9 +36,10 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable Long id){
+    public void excluir(@PathVariable Long id) {
         var medico = repository.getReferenceById(id);
         medico.excluir();
     }
+
 
 }
